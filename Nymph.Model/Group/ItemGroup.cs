@@ -1,3 +1,3 @@
 ﻿namespace Nymph.Model.Group;
 
-public record ItemGroup(Item.Item Item) : Group;
+public record ItemGroup<T>(T Item) : Group where T : Item.Item;
