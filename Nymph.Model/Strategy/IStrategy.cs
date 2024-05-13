@@ -1,6 +1,6 @@
 ﻿using LanguageExt;
 
-namespace Nymph.Model;
+namespace Nymph.Model.Strategy;
 
 public interface IStrategy
 {

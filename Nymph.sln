@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Model", "Nymph.Model\Nymph.Model.csproj", "{73B9156A-3599-4C7D-96D6-8F47F8C255EE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Shared", "Nymph.Shared\Nymph.Shared.csproj", "{6CECAD5C-AC74-4535-A93F-DA58D9586763}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Model.Test", "Nymph.Model.Test\Nymph.Model.Test.csproj", "{238B97A7-E86C-45BE-AC28-EEF34A6368AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{73B9156A-3599-4C7D-96D6-8F47F8C255EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73B9156A-3599-4C7D-96D6-8F47F8C255EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73B9156A-3599-4C7D-96D6-8F47F8C255EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CECAD5C-AC74-4535-A93F-DA58D9586763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CECAD5C-AC74-4535-A93F-DA58D9586763}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CECAD5C-AC74-4535-A93F-DA58D9586763}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CECAD5C-AC74-4535-A93F-DA58D9586763}.Release|Any CPU.Build.0 = Release|Any CPU
+		{238B97A7-E86C-45BE-AC28-EEF34A6368AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{238B97A7-E86C-45BE-AC28-EEF34A6368AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{238B97A7-E86C-45BE-AC28-EEF34A6368AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{238B97A7-E86C-45BE-AC28-EEF34A6368AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
