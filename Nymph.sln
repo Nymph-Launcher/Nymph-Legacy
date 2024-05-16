@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Shared", "Nymph.Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Model.Test", "Nymph.Model.Test\Nymph.Model.Test.csproj", "{238B97A7-E86C-45BE-AC28-EEF34A6368AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Helper", "Nymph.Helper\Nymph.Helper.csproj", "{D1DF9F8B-826C-4FA6-B9AA-4ECE6199ECDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{238B97A7-E86C-45BE-AC28-EEF34A6368AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{238B97A7-E86C-45BE-AC28-EEF34A6368AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{238B97A7-E86C-45BE-AC28-EEF34A6368AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1DF9F8B-826C-4FA6-B9AA-4ECE6199ECDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1DF9F8B-826C-4FA6-B9AA-4ECE6199ECDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1DF9F8B-826C-4FA6-B9AA-4ECE6199ECDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1DF9F8B-826C-4FA6-B9AA-4ECE6199ECDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

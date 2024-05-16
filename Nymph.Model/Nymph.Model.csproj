@@ -10,4 +10,8 @@
     <PackageReference Include="LanguageExt.Core" Version="4.4.8" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Nymph.Helper\Nymph.Helper.csproj" />
+  </ItemGroup>
+
 </Project>

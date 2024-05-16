@@ -11,7 +11,7 @@ public class ListPreviewStrategy : IStrategy
     public Seq<Group.Group> GetGroups(LayerState state)
     {
         return state.Item
-            .Bind(item => item.IsInstanceOfGenericType(typeof(ListItem<>))
+            .Bind(item => item is ListItem
                 ? Option<Item.Item>.Some(item)
                 : Option<Item.Item>.None)
             .Bind(item =>

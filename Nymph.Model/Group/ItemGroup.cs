@@ -1,3 +1,11 @@
 ﻿namespace Nymph.Model.Group;
 
-public record ItemGroup<T>(T Item) : Group where T : Item.Item;
+public abstract record ItemGroup : Group
+{
+    public abstract Item.Item GetItem();
+}
+
+public record ItemGroup<T>(T Item) : ItemGroup where T : Item.Item
+{
+    public override Item.Item GetItem() => Item;
+}
