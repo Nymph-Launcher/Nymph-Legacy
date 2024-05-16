@@ -31,34 +31,27 @@ public record BinaryFunctionGroup<TParam1, TParam2, TResult>(
     public override Option<Task<Seq<Item.Item>>> GetFinalResult(Item.Item param1, AtomItem<string> param2)
     {
         return GetSpecificFinalResult(param1, param2)
-            .Bind<Task<Seq<Item.Item>>>(task => task.Map(seq => seq.Map(item => item as Item.Item)));
+            .Map<Task<Seq<Item.Item>>>(task => task.Map(seq => seq.Map(item => item as Item.Item)));
     }
 
     public override Option<Task<Seq<TResult>>> GetSpecificFinalResult(Item.Item param1, AtomItem<string> param2)
     {
-        var unaryFunctions = GetUnaryFunctionItem(param1)
-            .Map(task => task.Map(seq => seq.Map(funcItem => funcItem.Func)));
-        
         return (param2 is TParam2 specificParam2 ? Some(specificParam2) : None)
-            .Bind(param2 => unaryFunctions.Map(functions => GetSpecificFinalResultFromUnaryFunctions(param2, functions)));
+            .Bind(param2 => GetUnaryFunctionItem(param1)
+                .Map(task => task
+                    .Map(seq => seq
+                        .Map(funcItem => funcItem.Func)))
+                .Map(tasks => tasks.MapAsync(async functions =>
+                {
+                    var results = new Seq<TResult>();
+                    foreach (var function1 in functions)
+                    {
+                        var resultSeq = await function1(param2);
+                        results = results + resultSeq;
+                    }
+                    return results;
+                })));
     }
-    
-    private Task<Seq<TResult>> GetSpecificFinalResultFromUnaryFunctions(
-        TParam2 param2, Task<Seq<Func<TParam2, Task<Seq<TResult>>>>> functions)
-    {
-        return functions.MapAsync(async functions =>
-        {
-            var results = new Seq<TResult>();
-            foreach (var function in functions)
-            {
-                var resultSeq = await function(param2);
-                results = results + resultSeq;
-            }
-
-            return results;
-        });
-    }
-
     public override Option<Task<Seq<FunctionItem<TParam2, TResult>>>> GetUnaryFunctionItem(Item.Item param1)
     {
         return param1 is TParam1 specificParam1
