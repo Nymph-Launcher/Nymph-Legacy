@@ -5,29 +5,28 @@ namespace Nymph.Model.Group;
 
 public abstract record UnaryFunctionGroup : Group
 {
-    public abstract Option<Task<Seq<Item.Item>>> GetResult(Item.Item item);
+    public abstract Task<Seq<Item.Item>> GetResult();
 }
 
 public abstract record UnaryFunctionGroup<TResult> : UnaryFunctionGroup
     where TResult : Item.Item
 {
-    public abstract Option<Task<Seq<TResult>>> GetSpecificResult(Item.Item item);
+    public abstract Task<Seq<TResult>> GetSpecificResult();
 }
 
 public record UnaryFunctionGroup<TParam, TResult>(
-    FunctionItem<TParam, TResult> UnaryFunction) : UnaryFunctionGroup<TResult>
+    FunctionItem<TParam, TResult> UnaryFunction,
+    TParam Param) : UnaryFunctionGroup<TResult>
     where TParam : Item.Item
     where TResult : Item.Item
 {
-    public override Option<Task<Seq<TResult>>> GetSpecificResult(Item.Item item)
+    public override Task<Seq<TResult>> GetSpecificResult()
     {
-        return (item is TParam specificParam ? Option<TParam>.Some(specificParam) : Option<TParam>.None)
-            .Map(param => UnaryFunction.Func(param));
+        return UnaryFunction.Func(Param);
     }
 
-    public override Option<Task<Seq<Item.Item>>> GetResult(Item.Item item)
+    public override Task<Seq<Item.Item>> GetResult()
     {
-        return GetSpecificResult(item)
-            .Map<Task<Seq<Item.Item>>>(task => task.Map(seq => seq.Map(item => item as Item.Item)));
+        return GetSpecificResult().Map(seq => seq.Map(item => item as Item.Item));
     }
 }

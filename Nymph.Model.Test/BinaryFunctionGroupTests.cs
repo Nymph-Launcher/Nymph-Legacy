@@ -17,11 +17,11 @@ public class BinaryFunctionGroupTests
                     Task.FromResult(
                         Seq1(
                         new AtomItem<string>($"{a.Value}{b.Value}")))))
-                    )));
-        var param1 = new AtomItem<string>("Hello");
+                    )), 
+            new AtomItem<string>("Hello"));
         var param2 = new AtomItem<string>("World");
 
-        var result = await binaryFunctionGroup.GetFinalResult(param1, param2).IfNoneAsync(Task.FromResult(LanguageExt.Seq<Item.Item>.Empty));
+        var result = await binaryFunctionGroup.GetFinalResult(param2).IfNoneAsync(Task.FromResult(LanguageExt.Seq<Item.Item>.Empty));
 
         Assert.Single(result.Result);
         Assert.Equal("HelloWorld", ((AtomItem<string>)result.Result.Head).Value);
