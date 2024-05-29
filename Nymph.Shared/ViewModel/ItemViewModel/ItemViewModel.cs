@@ -3,7 +3,7 @@ using System.Reactive;
 using Nymph.Model.Item;
 using ReactiveUI;
 
-namespace Nymph.Shared.ViewModel;
+namespace Nymph.Shared.ViewModel.ItemViewModel;
 
 public abstract class ItemViewModel : ReactiveObject
 {
@@ -47,4 +47,6 @@ public class PathItemViewModel<TDecorator, TItem>(PathItem<TDecorator, TItem> pa
     where TItem : Item
 {
     public ItemViewModel<TItem> DecoratedItem => new(pathItem.Item);
+    
+    public ItemViewModel<TDecorator> Decorator => new(pathItem.Decorator);
 }
