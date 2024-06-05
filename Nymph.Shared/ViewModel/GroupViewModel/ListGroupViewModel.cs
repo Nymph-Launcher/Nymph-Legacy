@@ -10,6 +10,6 @@ public class ListGroupViewModel<T>(ListGroup<T> group) : GroupViewModel<ListGrou
     where T : Model.Item.Item
 {
     public override ReadOnlyObservableCollection<CandidateItemViewModel> Items => new(
-        new ObservableCollection<CandidateItemViewModel>(Group.List.List.Select(item => new CandidateItemViewModel(new ItemViewModel<T>(item))))
+        new ObservableCollection<CandidateItemViewModel>(Group.List.List.Select(item => new CandidateItemViewModel(new ItemViewModelBuilder<T>(item).Build())))
     );
 }
