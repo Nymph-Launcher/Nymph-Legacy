@@ -8,7 +8,7 @@ namespace Nymph.Shared.ViewModel.GroupViewModel;
 
 public abstract class GroupViewModel : ReactiveObject
 {
-    public abstract ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
+    public abstract ObservableCollection<CandidateItemViewModel> Items { get; }
 }
 
 public abstract class GroupViewModel<T>(T group) : GroupViewModel

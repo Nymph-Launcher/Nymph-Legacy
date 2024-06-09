@@ -9,7 +9,7 @@ using ItemViewModel = ItemViewModel.ItemViewModel;
 public class ListGroupViewModel<T>(ListGroup<T> group) : GroupViewModel<ListGroup<T>>(group)
     where T : Model.Item.Item
 {
-    public override ReadOnlyObservableCollection<CandidateItemViewModel> Items => new(
+    public override ObservableCollection<CandidateItemViewModel> Items => new(
         new ObservableCollection<CandidateItemViewModel>(Group.List.List.Select(item => new CandidateItemViewModel(new ItemViewModelBuilder<T>(item).Build())))
     );
 }
