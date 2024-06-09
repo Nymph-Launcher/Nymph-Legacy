@@ -5,7 +5,7 @@ namespace Nymph.Shared.ViewModel.ItemViewModel;
 
 
 
-public class CandidateItemViewModel(ItemViewModel itemViewModel)
+public class CandidateItemViewModel(ItemViewModel itemViewModel) : ReactiveObject
 {
     public ItemViewModel ItemViewModel { get; } = itemViewModel;
 
