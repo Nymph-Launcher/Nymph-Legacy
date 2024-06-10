@@ -6,7 +6,7 @@ using Nymph.Model.Strategy;
 
 namespace Nymph.Model.Test;
 
-public class TextProcessStrategyTest
+public class DynamicUnaryStrategyTests
 {
     [Fact]
     public void GetGroups_ReturnsUnaryFunctionGroup_WhenStateTextExists()
@@ -20,11 +20,11 @@ public class TextProcessStrategyTest
         var state = new LayerState(Seq<Binding>(
                 [new Binding("hello", funcItem)]), 
             Option<Item.Item>.Some(funcItem), "hello");
-        var strategy = new TextProcessStrategy();
+        var strategy = new DynamicUnaryStrategy();
         var result = strategy.GetGroups(state);
 
         Assert.NotEmpty(result);
-        Assert.All(result, group => Assert.IsAssignableFrom<StaticUnaryFunctionGroup<AtomItem<string>>>(group));
+        Assert.All(result, group => Assert.IsAssignableFrom<DynamicUnaryFunctionGroup<AtomItem<string>>>(group));
     }
 
     [Fact]
@@ -39,7 +39,7 @@ public class TextProcessStrategyTest
         var state = new LayerState(Seq<Binding>(
                 [new Binding("hello", funcItem)]), 
             Option<Item.Item>.Some(funcItem), " ");
-        var strategy = new TextProcessStrategy();
+        var strategy = new DynamicUnaryStrategy();
         var result = strategy.GetGroups(state);
 
         Assert.Empty(result);
@@ -50,7 +50,7 @@ public class TextProcessStrategyTest
     {
         var state = new LayerState(Seq<Binding>(), 
             Option<Item.Item>.None, " ");
-        var strategy = new TextProcessStrategy();
+        var strategy = new DynamicUnaryStrategy();
         var result = strategy.GetGroups(state);
 
         Assert.Empty(result);
