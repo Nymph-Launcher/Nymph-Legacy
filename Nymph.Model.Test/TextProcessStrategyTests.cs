@@ -6,7 +6,7 @@ using Nymph.Model.Strategy;
 
 namespace Nymph.Model.Test;
 
-public class TextProcessStrategyTest
+public class TextProcessStrategyTests
 {
     [Fact]
     public void GetGroups_ReturnsUnaryFunctionGroup_WhenStateTextExists()

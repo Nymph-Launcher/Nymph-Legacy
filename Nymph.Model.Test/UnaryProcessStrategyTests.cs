@@ -6,7 +6,7 @@ using static LanguageExt.Prelude;
 
 namespace Nymph.Model.Test;
 
-public class UnaryProcessStrategyTest
+public class UnaryProcessStrategyTests
 {
     [Fact]
     public void GetGroups_ReturnsUnaryFunctionGroup_WhenStateItemProper()
