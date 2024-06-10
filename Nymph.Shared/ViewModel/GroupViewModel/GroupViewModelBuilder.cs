@@ -1,8 +1,9 @@
 ﻿using Nymph.Model.Group;
+using Nymph.Model.Item;
 
 namespace Nymph.Shared.ViewModel.GroupViewModel;
 
-public class GroupViewModelBuilder
+public class GroupViewModelBuilder(IObservable<AtomItem<string>> text)
 {
     public GroupViewModel Build(Group group)
     {
@@ -69,7 +70,7 @@ public class GroupViewModelBuilder
     {
         return (GroupViewModel?)Activator.CreateInstance(
             typeof(DynamicUnaryFunctionGroupViewModel<>).MakeGenericType(dynamicUnaryFunctionGroup.GetType()
-                .GetGenericArguments()[0]), dynamicUnaryFunctionGroup);
+                .GetGenericArguments()[0]), dynamicUnaryFunctionGroup, text);
     }
 
     private GroupViewModel? CreateBinaryFunctionGroupViewModel(BinaryFunctionGroup binaryFunctionGroup)
@@ -77,6 +78,6 @@ public class GroupViewModelBuilder
         var typeParameters = binaryFunctionGroup.GetType().GetGenericArguments();
         return (GroupViewModel?)Activator.CreateInstance(
             typeof(BinaryFunctionGroupViewModel<,,>).MakeGenericType(typeParameters[0], typeParameters[1],
-                typeParameters[2]), binaryFunctionGroup);
+                typeParameters[2]), binaryFunctionGroup, text);
     }
 }

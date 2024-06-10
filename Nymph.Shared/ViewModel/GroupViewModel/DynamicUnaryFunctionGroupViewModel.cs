@@ -11,7 +11,7 @@ public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<Dynami
     public override ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
     public override IObservable<Item> ChosenItemViewModels { get; }
 
-    public DynamicUnaryFunctionGroupViewModel(DynamicUnaryFunctionGroup<TResult> group) : base(group)
+    public DynamicUnaryFunctionGroupViewModel(DynamicUnaryFunctionGroup<TResult> group, IObservable<AtomItem<string>> text) : base(group)
     {
         
     }

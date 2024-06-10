@@ -14,7 +14,7 @@ public class
     public override ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
     public override IObservable<Item> ChosenItemViewModels { get; }
 
-    public BinaryFunctionGroupViewModel(BinaryFunctionGroup<TParam1, TParam2, TResult> group) : base(group)
+    public BinaryFunctionGroupViewModel(BinaryFunctionGroup<TParam1, TParam2, TResult> group, IObservable<AtomItem<string>> text) : base(group)
     {
         
     }

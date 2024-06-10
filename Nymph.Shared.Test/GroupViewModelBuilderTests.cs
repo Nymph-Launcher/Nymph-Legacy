@@ -1,4 +1,5 @@
-﻿using LanguageExt;
+﻿using System.Reactive.Linq;
+using LanguageExt;
 using Nymph.Model.Group;
 using Nymph.Model.Item;
 using Nymph.Shared.ViewModel.GroupViewModel;
@@ -9,11 +10,13 @@ namespace Nymph.Shared.Test;
 public class GroupViewModelBuilderTests
 {
     private GroupViewModelBuilder _builder;
+    private IObservable<AtomItem<string>> _text;
 
     [SetUp]
     public void SetUp()
     {
-        _builder = new GroupViewModelBuilder();
+        _text = Observable.Repeat("search text").Select(x => new AtomItem<string>(x));
+        _builder = new GroupViewModelBuilder(_text);
     }
 
     [Test]
