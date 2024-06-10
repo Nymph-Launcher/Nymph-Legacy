@@ -14,7 +14,7 @@ public class UnaryProcessStrategy : IStrategy
             .Some(stateItem => state.Bindings
                 .Map(binding => binding.Item)
                 .Filter(item => item is FunctionItem)
-                .Filter(item => item.GetType().GetGenericArguments()[0].IsAssignableFrom(stateItem.GetType()))
+                .Filter(item => stateItem.GetType().IsAssignableFrom(item.GetType().GetGenericArguments()[0]))
                 .Map(item =>
                 {
                     var genericTypes = item.GetType().GetGenericArguments();

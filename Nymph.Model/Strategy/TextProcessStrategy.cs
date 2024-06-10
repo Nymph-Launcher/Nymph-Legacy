@@ -21,8 +21,8 @@ public class TextProcessStrategy:  IStrategy
                 {
                     var genericTypes = item.GetType().GetGenericArguments();
                     return genericTypes.Length == 2
-                           && genericTypes[0].IsAssignableFrom(typeof(AtomItem<string>))
-                           && !genericTypes[1].IsAssignableFrom(typeof(FunctionItem));
+                           && typeof(AtomItem<string>) == genericTypes[0]
+                           && !typeof(FunctionItem).IsAssignableFrom(genericTypes[1]);
                 })
                 .Bind(item =>
                 {
