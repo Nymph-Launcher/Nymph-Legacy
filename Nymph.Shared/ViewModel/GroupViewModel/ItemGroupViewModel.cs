@@ -16,7 +16,7 @@ public class ItemGroupViewModel<T> : GroupViewModel<ItemGroup<T>>
     
     public ItemGroupViewModel(ItemGroup<T> group) : base(group)
     {
-        _candidates.Add(new CandidateItemViewModel(new ItemViewModelBuilder<T>(Group.Item).Build()));
+        _candidates.Add(new CandidateItemViewModel(new ItemViewModelBuilder().Build(Group.Item)));
 
         _candidates
             .Connect()

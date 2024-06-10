@@ -13,10 +13,10 @@ public class ItemViewModelBuilderTests
     {
         // Arrange
         var item = new AtomItem<string>("Hello World");
-        var builder = new ItemViewModelBuilder<AtomItem<string>>(item);
+        var builder = new ItemViewModelBuilder();
 
         // Act
-        var result = builder.Build();
+        var result = builder.Build(item);
 
         // Assert
         Assert.IsInstanceOf<AtomItemViewModel<string>>(result);
@@ -27,10 +27,10 @@ public class ItemViewModelBuilderTests
     {
         // Arrange
         var item = new ListItem<AtomItem<bool>>(new Seq<AtomItem<bool>>(new []{new AtomItem<bool>(false)}));
-        var builder = new ItemViewModelBuilder<ListItem<AtomItem<bool>>>(item);
+        var builder = new ItemViewModelBuilder();
 
         // Act
-        var result = builder.Build();
+        var result = builder.Build(item);
 
         // Assert
         Assert.IsInstanceOf<ListItemViewModel<AtomItem<bool>>>(result);
@@ -41,10 +41,10 @@ public class ItemViewModelBuilderTests
     {
         // Arrange
         var item = new FunctionItem<AtomItem<string>, AtomItem<string>>(atomItem => Task.FromResult(new Seq<AtomItem<string>>(new []{new AtomItem<string>(atomItem.Value+"?")})));
-        var builder = new ItemViewModelBuilder<FunctionItem<AtomItem<string>, AtomItem<string>>>(item);
+        var builder = new ItemViewModelBuilder();
 
         // Act
-        var result = builder.Build();
+        var result = builder.Build(item);
 
         // Assert
         Assert.IsInstanceOf<FunctionItemViewModel<AtomItem<string>,AtomItem<string>>>(result);
@@ -58,10 +58,10 @@ public class ItemViewModelBuilderTests
         {
             new Tuple<string, Item>("word1", new AtomItem<string>("cons"))
         }));
-        var builder = new ItemViewModelBuilder<RecordItem>(item);
+        var builder = new ItemViewModelBuilder();
 
         // Act
-        var result = builder.Build();
+        var result = builder.Build(item);
 
         // Assert
         Assert.IsInstanceOf<RecordItemViewModel>(result);
@@ -72,10 +72,10 @@ public class ItemViewModelBuilderTests
     {
         // Arrange
         var item = new PathItem<AtomItem<string>, AtomItem<string>>(new AtomItem<string>("123"), new AtomItem<string>("456"));
-        var builder = new ItemViewModelBuilder<PathItem<AtomItem<string>,AtomItem<string>>>(item);
+        var builder = new ItemViewModelBuilder();
 
         // Act
-        var result = builder.Build();
+        var result = builder.Build(item);
 
         // Assert
         Assert.IsInstanceOf<PathItemViewModel<AtomItem<string>,AtomItem<string>>>(result);
@@ -86,7 +86,7 @@ public class ItemViewModelBuilderTests
     {
         // Arrange
         var pathItem = new PathItem<AtomItem<string>, AtomItem<int>>(new AtomItem<string>("2"), new AtomItem<int>(2));
-        var pathItemViewModel = new ItemViewModelBuilder<PathItem<AtomItem<string>, AtomItem<int>>>(pathItem).Build();
+        var pathItemViewModel = new ItemViewModelBuilder().Build(pathItem);
         
         // Act
         var result = (pathItemViewModel as PathItemViewModel<AtomItem<string>, AtomItem<int>>)?.Decorator;

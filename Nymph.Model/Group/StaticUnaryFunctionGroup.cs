@@ -3,20 +3,20 @@ using Nymph.Model.Item;
 
 namespace Nymph.Model.Group;
 
-public abstract record UnaryFunctionGroup : Group
+public abstract record StaticUnaryFunctionGroup : Group
 {
     public abstract Task<Seq<Item.Item>> GetResult();
 }
 
-public abstract record UnaryFunctionGroup<TResult> : UnaryFunctionGroup
+public abstract record StaticUnaryFunctionGroup<TResult> : StaticUnaryFunctionGroup
     where TResult : Item.Item
 {
     public abstract Task<Seq<TResult>> GetSpecificResult();
 }
 
-public record UnaryFunctionGroup<TParam, TResult>(
+public record StaticUnaryFunctionGroup<TParam, TResult>(
     FunctionItem<TParam, TResult> UnaryFunction,
-    TParam Param) : UnaryFunctionGroup<TResult>
+    TParam Param) : StaticUnaryFunctionGroup<TResult>
     where TParam : Item.Item
     where TResult : Item.Item
 {

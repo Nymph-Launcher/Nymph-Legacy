@@ -23,7 +23,7 @@ public class UnaryProcessStrategyTest
         var strategy = new UnaryProcessStrategy();
         var result = strategy.GetGroups(state);
         Assert.NotEmpty(result);
-        Assert.All(result, group => Assert.IsAssignableFrom<UnaryFunctionGroup<AtomItem<string>>>(group));
+        Assert.All(result, group => Assert.IsAssignableFrom<StaticUnaryFunctionGroup<AtomItem<string>>>(group));
     }
 
     [Fact]
@@ -42,7 +42,7 @@ public class UnaryProcessStrategyTest
         var result = strategy.GetGroups(state);
         Assert.All(result, async group =>
         {
-            var funcGroup = group as UnaryFunctionGroup;
+            var funcGroup = group as StaticUnaryFunctionGroup;
             if (funcGroup == null) return;
             var atom = await funcGroup.GetResult();
             var str = atom[0] as AtomItem<string>;

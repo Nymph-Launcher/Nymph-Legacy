@@ -28,7 +28,7 @@ public class TextProcessStrategy:  IStrategy
                 {
                     var genericTypes = item.GetType().GetGenericArguments();
                     var unaryFuncGroupType =
-                        typeof(UnaryFunctionGroup<,>).MakeGenericType(genericTypes);
+                        typeof(StaticUnaryFunctionGroup<,>).MakeGenericType(genericTypes);
                     var unaryFuncGroup =
                         (Group.Group?)Activator.CreateInstance(unaryFuncGroupType, [item, new AtomItem<string>(layerState.Text)]);
                     return unaryFuncGroup == null ? Option<Group.Group>.None : Option<Group.Group>.Some(unaryFuncGroup);

@@ -9,7 +9,7 @@ public class PathItemViewModel<TDecorator, TItem>(PathItem<TDecorator, TItem> pa
 {
     private readonly PathItem<TDecorator, TItem> _pathItem = pathItem;
     
-    public ItemViewModel<TItem> DecoratedItem => new ItemViewModelBuilder<TItem>(_pathItem.Item).Build();
+    public ItemViewModel<TItem> DecoratedItem => new ItemViewModelBuilder().Build(_pathItem.Item);
     
-    public ItemViewModel<TDecorator> Decorator => new ItemViewModelBuilder<TDecorator>(_pathItem.Decorator).Build();
+    public ItemViewModel<TDecorator> Decorator => new ItemViewModelBuilder().Build(_pathItem.Decorator);
 }

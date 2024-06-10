@@ -18,7 +18,7 @@ public class ListGroupViewModel<T> : GroupViewModel<ListGroup<T>>
     
     public ListGroupViewModel(ListGroup<T> group) : base(group)
     {
-        _candidates.AddRange(group.List.List.Select(item => new CandidateItemViewModel(new ItemViewModelBuilder<T>(item).Build())));
+        _candidates.AddRange(group.List.List.Select(item => new CandidateItemViewModel(new ItemViewModelBuilder().Build(item))));
 
         _candidates
             .Connect()

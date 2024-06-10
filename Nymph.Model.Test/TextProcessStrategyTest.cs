@@ -24,7 +24,7 @@ public class TextProcessStrategyTest
         var result = strategy.GetGroups(state);
 
         Assert.NotEmpty(result);
-        Assert.All(result, group => Assert.IsAssignableFrom<UnaryFunctionGroup<AtomItem<string>>>(group));
+        Assert.All(result, group => Assert.IsAssignableFrom<StaticUnaryFunctionGroup<AtomItem<string>>>(group));
     }
 
     [Fact]

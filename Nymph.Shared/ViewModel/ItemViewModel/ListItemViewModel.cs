@@ -8,6 +8,6 @@ public class ListItemViewModel<T>(ListItem<T> listItem) : ItemViewModel<ListItem
 {
     public ReadOnlyObservableCollection<ItemViewModel<T>> Items => new(
         new ObservableCollection<ItemViewModel<T>>(
-            Item.List.Select(item => new ItemViewModelBuilder<T>(item).Build())
+            Item.List.Select(item => new ItemViewModelBuilder().Build(item))
         ));
 }

@@ -18,7 +18,7 @@ public class UnaryProcessStrategy : IStrategy
                 .Map(item =>
                 {
                     var genericTypes = item.GetType().GetGenericArguments();
-                    var unaryFuncType = typeof(UnaryFunctionGroup<,>).MakeGenericType(genericTypes);
+                    var unaryFuncType = typeof(StaticUnaryFunctionGroup<,>).MakeGenericType(genericTypes);
                     var unaryFuncs = (Group.Group?)Activator.CreateInstance(unaryFuncType, [item, stateItem]);
                     return unaryFuncs == null ? Option<Group.Group>.None : Option<Group.Group>.Some(unaryFuncs);
                 })
