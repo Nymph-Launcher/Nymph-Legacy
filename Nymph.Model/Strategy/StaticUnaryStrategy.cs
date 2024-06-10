@@ -6,7 +6,7 @@ using Nymph.Model.Group;
 
 namespace Nymph.Model.Strategy;
 
-public class UnaryProcessStrategy : IStrategy
+public class StaticUnaryStrategy : IStrategy
 {
     public Seq<Group.Group> GetGroups(LayerState state)
     {

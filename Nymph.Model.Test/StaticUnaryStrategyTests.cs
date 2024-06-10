@@ -6,7 +6,7 @@ using static LanguageExt.Prelude;
 
 namespace Nymph.Model.Test;
 
-public class UnaryProcessStrategyTests
+public class StaticUnaryStrategyTests
 {
     [Fact]
     public void GetGroups_ReturnsUnaryFunctionGroup_WhenStateItemProper()
@@ -20,7 +20,7 @@ public class UnaryProcessStrategyTests
         var state = new LayerState(
              Seq<Binding>([new Binding("hello", funcItem)]),
                 Option<Item.Item>.Some(new AtomItem<string>("Hello, world")), " ");
-        var strategy = new UnaryProcessStrategy();
+        var strategy = new StaticUnaryStrategy();
         var result = strategy.GetGroups(state);
         Assert.NotEmpty(result);
         Assert.All(result, group => Assert.IsAssignableFrom<StaticUnaryFunctionGroup<AtomItem<string>>>(group));
@@ -38,7 +38,7 @@ public class UnaryProcessStrategyTests
         var state = new LayerState(
             Seq<Binding>([new Binding("hello", funcItem)]),
             Option<Item.Item>.Some(new AtomItem<string>("Hello, world")), " ");
-        var strategy = new UnaryProcessStrategy();
+        var strategy = new StaticUnaryStrategy();
         var result = strategy.GetGroups(state);
         Assert.All(result, async group =>
         {
@@ -51,7 +51,7 @@ public class UnaryProcessStrategyTests
     }
 
     [Fact]
-    public void GetGroups_ReturnsUnaryFunctionGroup_WhenStateItemImproper()
+    public void GetGroups_ReturnsEmpty_WhenStateItemImproper()
     {
         var funcItem = new FunctionItem<AtomItem<string>, AtomItem<string>>(
             async param =>
@@ -62,14 +62,14 @@ public class UnaryProcessStrategyTests
         var state = new LayerState(Seq<Binding>(
                 [new Binding("hello", funcItem)]),
             Option<Item.Item>.Some(funcItem), " ");
-        var strategy = new UnaryProcessStrategy();
+        var strategy = new StaticUnaryStrategy();
         var result = strategy.GetGroups(state);
         Assert.Empty(result);
     }
     
     
     [Fact]
-    public void GetGroups_ReturnsUnaryFunctionGroup_WhenNoProperBinding()
+    public void GetGroups_ReturnsEmpty_WhenNoProperBinding()
     {
         var funcItem = new FunctionItem<ListItem, AtomItem<string>>(
             async param =>
@@ -80,7 +80,7 @@ public class UnaryProcessStrategyTests
         var state = new LayerState(Seq<Binding>(
                 [new Binding("hello", funcItem)]),
             Option<Item.Item>.Some(new AtomItem<string>("Hello, world")), " ");
-        var strategy = new UnaryProcessStrategy();
+        var strategy = new StaticUnaryStrategy();
         var result = strategy.GetGroups(state);
         Assert.Empty(result);
     }

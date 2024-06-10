@@ -6,7 +6,7 @@ using Nymph.Model.Item;
 
 namespace Nymph.Model.Strategy;
 
-public class TextProcessStrategy:  IStrategy
+public class DynamicUnaryStrategy:  IStrategy
 {
     public Seq<Group.Group> GetGroups(LayerState state)
     {
@@ -28,9 +28,9 @@ public class TextProcessStrategy:  IStrategy
                 {
                     var genericTypes = item.GetType().GetGenericArguments();
                     var unaryFuncGroupType =
-                        typeof(StaticUnaryFunctionGroup<,>).MakeGenericType(genericTypes);
+                        typeof(DynamicUnaryFunctionGroup<>).MakeGenericType(genericTypes[1]);
                     var unaryFuncGroup =
-                        (Group.Group?)Activator.CreateInstance(unaryFuncGroupType, [item, new AtomItem<string>(layerState.Text)]);
+                        (Group.Group?)Activator.CreateInstance(unaryFuncGroupType, item);
                     return unaryFuncGroup == null ? Option<Group.Group>.None : Option<Group.Group>.Some(unaryFuncGroup);
                 })
             )
