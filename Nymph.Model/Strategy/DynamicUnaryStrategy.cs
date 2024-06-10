@@ -21,8 +21,7 @@ public class DynamicUnaryStrategy:  IStrategy
                 {
                     var genericTypes = item.GetType().GetGenericArguments();
                     return genericTypes.Length == 2
-                           && typeof(AtomItem<string>) == genericTypes[0]
-                           && !typeof(FunctionItem).IsAssignableFrom(genericTypes[1]);
+                           && typeof(AtomItem<string>) == genericTypes[0];
                 })
                 .Bind(item =>
                 {
