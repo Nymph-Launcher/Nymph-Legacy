@@ -47,8 +47,7 @@ public class StaticUnaryFunctionGroupViewModel<TParam, TResult> : GroupViewModel
                 _candidates.Clear();
                 _candidates.AddRange(seq.Select(item =>
                     new CandidateItemViewModel(new ItemViewModelBuilder().Build(item))));
-            });
-        // might used as ExecuteFunc.Execute(Unit.Default).Subscribe()
-
+            })
+            .Subscribe();
     }
 }

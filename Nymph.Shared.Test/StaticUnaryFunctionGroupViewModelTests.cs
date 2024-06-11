@@ -86,18 +86,22 @@ public class StaticUnaryFunctionGroupViewModelTests
         // ReactiveCommand, when after Execute, a <TOutput> flow created. Use Subscribe->onNext to observe it
         staticUnaryFunctionGroupViewModel.ExecuteFunc
             .Execute(Unit.Default)
-            .Subscribe(_ => {
-                var results = staticUnaryFunctionGroupViewModel.Items
-                    .Select(vm => vm.ItemViewModel.GetItem)
-                    .Cast<Str>()
-                    .ToSeq();
-                Assert.Multiple(() =>
-                {
-                    // Assert
-                    Assert.That(results[0], Is.Not.AssignableFrom(typeof(FunctionItem<Str, Str>)));
-                    Assert.That(results, Has.Count.EqualTo(10));
-                    Assert.That(results.SequenceEqual(expectedResults), Is.True);
-                });
-            });
+            .Subscribe();
+        
+        var results = staticUnaryFunctionGroupViewModel.Items
+            .Select(vm => vm.ItemViewModel.GetItem)
+            .Cast<Str>()
+            .ToSeq();
+        
+        // Delay 5000ms
+        Task.Delay(5000).Wait();
+        
+        Assert.Multiple(() =>
+        {
+            // Assert
+            Assert.That(results[0], Is.Not.AssignableFrom(typeof(FunctionItem<Str, Str>)));
+            Assert.That(results, Has.Count.EqualTo(10));
+            Assert.That(results.SequenceEqual(expectedResults), Is.True);
+        });
     }
 }
