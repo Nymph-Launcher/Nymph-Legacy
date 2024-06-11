@@ -40,7 +40,7 @@ public class StaticUnaryFunctionGroupViewModel<TParam, TResult> : GroupViewModel
         
         ExecuteFunc = ReactiveCommand.CreateFromTask(async () => await group.GetSpecificResult());
         ExecuteFunc
-            .Throttle(TimeSpan.FromMilliseconds(300)) 
+            .Throttle(TimeSpan.FromMilliseconds(300))
             .DistinctUntilChanged()
             .Do(seq =>
             {
