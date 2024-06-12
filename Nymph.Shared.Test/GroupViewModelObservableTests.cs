@@ -12,7 +12,7 @@ public class GroupViewModelObservableTests
     [Test]
     public void ListGroupViewModel_ShouldEmitChosenCandidateItemViewModel_WhenChosen()
     {
-        // Arrage
+        // Arrange
         var listGroup = new ListGroup<AtomItem<string>>(
             new ListItem<AtomItem<string>>(new Seq<AtomItem<string>>([new AtomItem<string>("123")])));
 
@@ -46,5 +46,23 @@ public class GroupViewModelObservableTests
         
         // Assert
         Assert.That(toBeChosenItem.ItemViewModel.GetItem, Is.EqualTo(chosenItem));
+    }
+
+    [Test]
+    public void ItemGroupViewModel_ShouldNotEmitChosenCandidateItemViewModel_WhenConnectedButNotChosen()
+    {        
+        // Arrange
+        var itemGroup = new ItemGroup<AtomItem<string>>(new AtomItem<string>("123"));
+
+        var itemGroupViewModel = new ItemGroupViewModel<AtomItem<string>>(itemGroup);
+
+        Item chosenItem = null;
+        itemGroupViewModel.ChosenItemViewModels.Subscribe(item => chosenItem = item);
+        
+        // Act
+        // Do nothing
+        
+        // Assert
+        Assert.That(chosenItem, Is.EqualTo(null));
     }
 }
