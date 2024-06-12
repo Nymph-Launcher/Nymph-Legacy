@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Model", "Nymph.Model\Nymph.Model.csproj", "{73B9156A-3599-4C7D-96D6-8F47F8C255EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nymph.Model", "Nymph.Model\Nymph.Model.csproj", "{73B9156A-3599-4C7D-96D6-8F47F8C255EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Shared", "Nymph.Shared\Nymph.Shared.csproj", "{6CECAD5C-AC74-4535-A93F-DA58D9586763}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nymph.Shared", "Nymph.Shared\Nymph.Shared.csproj", "{6CECAD5C-AC74-4535-A93F-DA58D9586763}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Model.Test", "Nymph.Model.Test\Nymph.Model.Test.csproj", "{238B97A7-E86C-45BE-AC28-EEF34A6368AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nymph.Model.Test", "Nymph.Model.Test\Nymph.Model.Test.csproj", "{238B97A7-E86C-45BE-AC28-EEF34A6368AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Helper", "Nymph.Helper\Nymph.Helper.csproj", "{D1DF9F8B-826C-4FA6-B9AA-4ECE6199ECDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nymph.Helper", "Nymph.Helper\Nymph.Helper.csproj", "{D1DF9F8B-826C-4FA6-B9AA-4ECE6199ECDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Shared.Test", "Nymph.Shared.Test\Nymph.Shared.Test.csproj", "{54DC4015-9827-488A-B34D-6F53ACF99E10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nymph.Shared.Test", "Nymph.Shared.Test\Nymph.Shared.Test.csproj", "{54DC4015-9827-488A-B34D-6F53ACF99E10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.App", "Nymph.App\Nymph.App.csproj", "{53659217-551B-4613-B39B-03596B0CFDFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{54DC4015-9827-488A-B34D-6F53ACF99E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54DC4015-9827-488A-B34D-6F53ACF99E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54DC4015-9827-488A-B34D-6F53ACF99E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53659217-551B-4613-B39B-03596B0CFDFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53659217-551B-4613-B39B-03596B0CFDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53659217-551B-4613-B39B-03596B0CFDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53659217-551B-4613-B39B-03596B0CFDFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
