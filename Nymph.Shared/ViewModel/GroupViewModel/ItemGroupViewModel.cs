@@ -9,8 +9,7 @@ namespace Nymph.Shared.ViewModel.GroupViewModel;
 
 using ItemViewModel = ItemViewModel.ItemViewModel;
 
-public class ItemGroupViewModel<T> : GroupViewModel<ItemGroup<T>>
-    where T : Model.Item.Item
+public class ItemGroupViewModel<T> : GroupViewModel<ItemGroup<T>>, IItemGroupViewModel where T : Model.Item.Item
 {
     private readonly SourceList<CandidateItemViewModel> _candidates = new();
     
@@ -34,12 +33,12 @@ public class ItemGroupViewModel<T> : GroupViewModel<ItemGroup<T>>
             .Publish()
             .RefCount();
         
-        Preview = new(group.Item);
+        Preview = new ItemPreviewViewModel<T>(group.Item);
     }
 
     public override ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
     
     public override IObservable<Item> ChosenItemViewModels { get; }
 
-    public ItemPreviewViewModel<T> Preview { get; }
+    public IItemPreviewViewModel Preview { get; }
 }

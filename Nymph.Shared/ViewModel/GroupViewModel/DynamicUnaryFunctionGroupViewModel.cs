@@ -9,8 +9,7 @@ using ReactiveUI;
 
 namespace Nymph.Shared.ViewModel.GroupViewModel;
 
-public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<DynamicUnaryFunctionGroup<TResult>>
-    where TResult : Item
+public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<DynamicUnaryFunctionGroup<TResult>>, IDynamicUnaryFunctionGroupViewModel where TResult : Item
 {
     public readonly SourceList<CandidateItemViewModel> _candidates = new();
     public override ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }

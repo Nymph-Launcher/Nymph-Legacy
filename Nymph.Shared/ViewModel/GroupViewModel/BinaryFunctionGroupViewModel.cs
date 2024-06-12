@@ -13,8 +13,7 @@ using static LanguageExt.Prelude;
 
 namespace Nymph.Shared.ViewModel.GroupViewModel;
 
-public class BinaryFunctionGroupViewModel<TParam1,TParam2,TResult>: GroupViewModel<BinaryFunctionGroup<TParam1,TParam2,TResult>>
-    where TParam1: Item
+public class BinaryFunctionGroupViewModel<TParam1,TParam2,TResult>: GroupViewModel<BinaryFunctionGroup<TParam1,TParam2,TResult>>, IBinaryFunctionGroupViewModel where TParam1: Item
     where TParam2: AtomItem<string>
     where TResult: Item
 {

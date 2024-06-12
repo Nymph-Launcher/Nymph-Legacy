@@ -10,7 +10,7 @@ using Unit = System.Reactive.Unit;
 
 namespace Nymph.Shared.ViewModel.GroupViewModel;
 
-public class StaticUnaryFunctionGroupViewModel<TParam, TResult> : GroupViewModel<StaticUnaryFunctionGroup<TParam, TResult>> where TParam : Item
+public class StaticUnaryFunctionGroupViewModel<TParam, TResult> : GroupViewModel<StaticUnaryFunctionGroup<TParam, TResult>>, IStaticUnaryFunctionGroupViewModel<TResult> where TParam : Item
     where TResult : Item
 {
     private readonly SourceList<CandidateItemViewModel> _candidates = new();

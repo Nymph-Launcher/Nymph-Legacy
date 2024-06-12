@@ -7,8 +7,7 @@ using Nymph.Shared.ViewModel.ItemViewModel;
 
 namespace Nymph.Shared.ViewModel.GroupViewModel;
 
-public class ListGroupViewModel<T> : GroupViewModel<ListGroup<T>>
-    where T : Model.Item.Item
+public class ListGroupViewModel<T> : GroupViewModel<ListGroup<T>>, IListGroupViewModel where T : Model.Item.Item
 {
     public override IObservable<Item> ChosenItemViewModels { get; }
     

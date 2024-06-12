@@ -2,7 +2,9 @@
 
 namespace Nymph.Shared.ViewModel.ItemViewModel;
 
-public class AtomItemViewModel<T>(AtomItem<T> atomItem) : ItemViewModel<AtomItem<T>>(atomItem)
+public class AtomItemViewModel<T>(AtomItem<T> atomItem) : ItemViewModel<AtomItem<T>>(atomItem), IAtomItemViewModel
 {
     public T Value => Item.Value;
+
+    public object GetValue => Value;
 }
