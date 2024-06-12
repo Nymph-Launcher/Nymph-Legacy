@@ -41,16 +41,26 @@ public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<Dynami
             .Publish()
             .RefCount();
 
-        text
-            .Throttle(TimeSpan.FromMilliseconds(300))
+        var autoExecuteObservable = this.WhenAnyValue(x => x.IsAutoExecute)
+            .DistinctUntilChanged();
+        
+        var acceptedText = autoExecuteObservable
+            .CombineLatest(text, (auto, text) => (auto, text))
+            .Where(t => t.auto)
+            .Select(t => t.text);
+        
+        acceptedText
+            .Throttle(TimeSpan.FromMicroseconds(300))
             .DistinctUntilChanged()
-            .Where(_ => IsAutoExecute)
             .SelectMany(async t => await group.GetSpecificResult(t))
             .Select(seq => seq.Select(res => new CandidateItemViewModel(new ItemViewModelBuilder().Build(res))))
             .Subscribe(seq =>
             {
-                _candidates.Clear();
-                _candidates.AddRange(seq);
+                _candidates.Edit(inner =>
+                {
+                    inner.Clear();
+                    inner.AddRange(seq);
+                });
             });
     }
 }
