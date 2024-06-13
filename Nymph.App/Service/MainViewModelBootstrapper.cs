@@ -15,6 +15,9 @@ public static class MainViewModelBootstrapper
     {
         return new MainViewModel([
             new Binding("hello", new AtomItem<string>("hello")),
+            new Binding("hello", new AtomItem<string>("hello")),
+            new Binding("hello func", new FunctionItem<AtomItem<string>, AtomItem<string>>(
+                param => Task.Run(() => Seq<AtomItem<string>>([new("Hello, " + param.Value)])))),
             new Binding("hello func", new FunctionItem<AtomItem<string>, AtomItem<string>>(
                 param => Task.Run(() => Seq<AtomItem<string>>([new("Hello, " + param.Value)])))),
         ], new SynthesisStrategy());

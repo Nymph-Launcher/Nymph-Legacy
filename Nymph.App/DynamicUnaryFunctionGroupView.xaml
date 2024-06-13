@@ -20,6 +20,6 @@
         
         <TextBlock Grid.Row="0" Grid.Column="0" x:Name="ItemsCount"/>
         <ToggleButton Grid.Row="0" Grid.Column="1" x:Name="AutoSwitch">Auto</ToggleButton>
-        <ListBox Grid.Row="1" Grid.ColumnSpan="2" x:Name="ItemsList"/>
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" x:Name="ItemsList"/>
     </Grid>
 </reactiveui:ReactiveUserControl>

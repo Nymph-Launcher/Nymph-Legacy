@@ -1,11 +1,9 @@
 ﻿using System.Reactive.Disposables;
-using System.Windows.Controls;
 using Nymph.Model.Item;
 using Nymph.Shared.ViewModel.GroupViewModel;
-using Nymph.Shared.ViewModel.ItemViewModel;
 using ReactiveUI;
 
-namespace Nymph.App.Service;
+namespace Nymph.App;
 
 public partial class GithubRepoPreviewView : ReactiveUserControl<IItemPreviewViewModel>
 {
@@ -15,8 +13,9 @@ public partial class GithubRepoPreviewView : ReactiveUserControl<IItemPreviewVie
         this.WhenActivated(d =>
         {
             this.OneWayBind(ViewModel,
-                    vm => ((ItemPreviewViewModel<AtomItem<string>>)vm).Item.Value,
-                    v => v.GithubPreviewBlock.Text)
+                    vm => vm,
+                    v => v.GithubPreviewBlock.Text,
+                    vm => (vm as ItemPreviewViewModel<AtomItem<string>>)?.Item.Value ?? "")
                 .DisposeWith(d);
         });
     }
