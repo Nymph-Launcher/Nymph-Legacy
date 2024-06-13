@@ -9,9 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NuGet.Protocol" Version="6.10.0" />
     <PackageReference Include="ReactiveUI.WPF" Version="20.1.1" />
-    <PackageReference Include="WPF-UI" Version="3.0.4" />
+    <PackageReference Include="Splat.Autofac" Version="15.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nymph.Shared\Nymph.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="GithubRepoPreviewView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <XamlRuntime>Wpf</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 
 </Project>

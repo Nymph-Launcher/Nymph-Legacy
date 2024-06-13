@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using DynamicData;
+using DynamicData.Alias;
 using LanguageExt;
 using Nymph.Model.Group;
 using Nymph.Model.Item;
@@ -10,13 +11,13 @@ using Unit = System.Reactive.Unit;
 
 namespace Nymph.Shared.ViewModel.GroupViewModel;
 
-public class StaticUnaryFunctionGroupViewModel<TParam, TResult> : GroupViewModel<StaticUnaryFunctionGroup<TParam, TResult>>, IStaticUnaryFunctionGroupViewModel<TResult> where TParam : Item
+public class StaticUnaryFunctionGroupViewModel<TParam, TResult> : GroupViewModel<StaticUnaryFunctionGroup<TParam, TResult>>, IStaticUnaryFunctionGroupViewModel where TParam : Item
     where TResult : Item
 {
     private readonly SourceList<CandidateItemViewModel> _candidates = new();
     public override ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
     public override IObservable<Item> ChosenItemViewModels { get; }
-    public ReactiveCommand<Unit, Seq<TResult>> ExecuteFunc { get;  }
+    public ReactiveCommand<Unit, Unit> ExecuteFunc { get;  }
 
     public StaticUnaryFunctionGroupViewModel(StaticUnaryFunctionGroup<TParam, TResult> group) : base(group)
     {
@@ -37,10 +38,11 @@ public class StaticUnaryFunctionGroupViewModel<TParam, TResult> : GroupViewModel
             .Select(itemvm => itemvm.GetItem)
             .Publish()
             .RefCount();
-        
-        ExecuteFunc = ReactiveCommand.CreateFromTask(async () => await group.GetSpecificResult());
+
+        ExecuteFunc = ReactiveCommand.Create(() => { });
         ExecuteFunc
             .Throttle(TimeSpan.FromMilliseconds(300))
+            .SelectMany(_ => group.GetSpecificResult())
             .DistinctUntilChanged()
             .Do(seq =>
             {

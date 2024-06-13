@@ -7,8 +7,8 @@ using Unit = System.Reactive.Unit;
 
 namespace Nymph.Shared.ViewModel.GroupViewModel;
 
-public interface IStaticUnaryFunctionGroupViewModel<TResult> where TResult : Item
+public interface IStaticUnaryFunctionGroupViewModel
 {
     ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
-    ReactiveCommand<Unit, Seq<TResult>> ExecuteFunc { get; }
+    ReactiveCommand<Unit, Unit> ExecuteFunc { get; }
 }

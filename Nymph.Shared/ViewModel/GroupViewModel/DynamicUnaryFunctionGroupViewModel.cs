@@ -53,6 +53,7 @@ public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<Dynami
             .DistinctUntilChanged()
             .SelectMany(async t => await group.GetSpecificResult(t))
             .Select(seq => seq.Select(res => new CandidateItemViewModel(new ItemViewModelBuilder().Build(res))))
+            .ObserveOn(RxApp.MainThreadScheduler)
             .Subscribe(seq =>
             {
                 _candidates.Edit(inner =>
