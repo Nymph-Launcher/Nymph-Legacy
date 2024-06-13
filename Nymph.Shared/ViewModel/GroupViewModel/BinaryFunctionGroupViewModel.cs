@@ -56,6 +56,7 @@ public class BinaryFunctionGroupViewModel<TParam1,TParam2,TResult>: GroupViewMod
         
         _candidate
             .Connect()
+            .ObserveOn(RxApp.MainThreadScheduler)
             .Bind(out var candidates)
             .Subscribe();
         

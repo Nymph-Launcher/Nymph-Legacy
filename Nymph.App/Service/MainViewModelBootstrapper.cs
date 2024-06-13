@@ -15,11 +15,14 @@ public static class MainViewModelBootstrapper
     {
         return new MainViewModel([
             new Binding("hello", new AtomItem<string>("hello")),
-            new Binding("hello", new AtomItem<string>("hello")),
             new Binding("hello func", new FunctionItem<AtomItem<string>, AtomItem<string>>(
                 param => Task.Run(() => Seq<AtomItem<string>>([new("Hello, " + param.Value)])))),
-            new Binding("hello func", new FunctionItem<AtomItem<string>, AtomItem<string>>(
-                param => Task.Run(() => Seq<AtomItem<string>>([new("Hello, " + param.Value)])))),
+            new Binding("a bin func",
+                new FunctionItem<AtomItem<string>, FunctionItem<AtomItem<string>, AtomItem<string>>>(
+                    param1 => Task.FromResult(Seq<FunctionItem<AtomItem<string>, AtomItem<string>>>([
+                        new FunctionItem<AtomItem<string>, AtomItem<string>>(param2 =>
+                            Task.FromResult(Seq<AtomItem<string>>([new AtomItem<string>($"{param1.Value},{param2.Value}")])))
+                    ]))))
         ], new SynthesisStrategy());
     }
 }

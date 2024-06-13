@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock x:Name="ItemsCount"/>
         <Button Grid.Row="0" Grid.Column="1" x:Name="ExecuteButton">Run</Button>
-        <ListBox Grid.Row="1" Grid.ColumnSpan="2" x:Name="ItemsList"/>
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" x:Name="ItemsList"/>
         
     </Grid>
 </reactiveui:ReactiveUserControl>

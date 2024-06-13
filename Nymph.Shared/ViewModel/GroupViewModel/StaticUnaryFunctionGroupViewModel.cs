@@ -43,7 +43,7 @@ public class StaticUnaryFunctionGroupViewModel<TParam, TResult> : GroupViewModel
         ExecuteFunc
             .Throttle(TimeSpan.FromMilliseconds(300))
             .SelectMany(_ => group.GetSpecificResult())
-            .DistinctUntilChanged()
+            .ObserveOn(RxApp.MainThreadScheduler)
             .Do(seq =>
             {
                 _candidates.Clear();

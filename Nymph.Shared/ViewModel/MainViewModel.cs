@@ -76,6 +76,7 @@ public class MainViewModel : ReactiveObject
                     new LayerState(new Seq<Binding>(bds), constraintItem, searchText.Value));
 
         layerStateObservable
+            .ObserveOn(RxApp.MainThreadScheduler)
             .Subscribe(state =>
         {
             _groupViewModels.Edit(groupVMs =>
