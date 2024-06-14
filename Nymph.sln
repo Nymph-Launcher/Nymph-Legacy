@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nymph.Shared.Test", "Nymph.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.App", "Nymph.App\Nymph.App.csproj", "{53659217-551B-4613-B39B-03596B0CFDFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Plugin.Everything", "Nymph.Plugin.Everything\Nymph.Plugin.Everything.csproj", "{ED959712-B5B7-4227-9F12-41F1C9925047}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{53659217-551B-4613-B39B-03596B0CFDFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53659217-551B-4613-B39B-03596B0CFDFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53659217-551B-4613-B39B-03596B0CFDFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED959712-B5B7-4227-9F12-41F1C9925047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED959712-B5B7-4227-9F12-41F1C9925047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED959712-B5B7-4227-9F12-41F1C9925047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED959712-B5B7-4227-9F12-41F1C9925047}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

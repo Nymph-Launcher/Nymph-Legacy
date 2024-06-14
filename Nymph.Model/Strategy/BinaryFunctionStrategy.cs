@@ -19,7 +19,7 @@ public class BinaryFunctionStrategy : IStrategy
                     if (generricTypes.Length != 2) return false;
                     if (!typeof(FunctionItem).IsAssignableFrom(generricTypes[1])) return false;
                     var tresultArgTypes = generricTypes[1].GetGenericArguments();
-                    return generricTypes[0].IsAssignableFrom(stateItem.GetType())
+                    return generricTypes[0].IsInstanceOfType(stateItem)
                            && tresultArgTypes[0] == typeof(AtomItem<string>);
                 })
                 .Map(func =>

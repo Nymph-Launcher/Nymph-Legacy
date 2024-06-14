@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EverythingNetCore" Version="2.0.0" />
+      <PackageReference Include="LanguageExt.Core" Version="4.4.8" />
+      <PackageReference Include="ReactiveUI.WPF" Version="20.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Nymph.Model\Nymph.Model.csproj" />
+      <ProjectReference Include="..\Nymph.Shared\Nymph.Shared.csproj" />
+    </ItemGroup>
+
+</Project>

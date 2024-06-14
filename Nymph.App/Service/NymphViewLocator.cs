@@ -1,4 +1,6 @@
 ﻿using Nymph.Shared.ViewModel.GroupViewModel;
+using Nymph.Model.Item;
+using Nymph.Plugin.Everything;
 using Nymph.Shared.ViewModel.ItemViewModel;
 using ReactiveUI;
 using Splat;
