@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Nymph.Plugin.Everything\Nymph.Plugin.Everything.csproj" />
+    <ProjectReference Include="..\Nymph.Plugin.GitHub\Nymph.Plugin.GitHub.csproj" />
     <ProjectReference Include="..\Nymph.Shared\Nymph.Shared.csproj" />
   </ItemGroup>
 
