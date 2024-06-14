@@ -14,15 +14,15 @@ public partial class EverythingFileInfoItemView
         this.WhenActivated(d =>
         {
             this.OneWayBind(ViewModel,
-                    vm => vm.GetItem,
+                    vm => vm.GetValue,
                     v => v.FileNameBlock.Text,
-                    item => (item as AtomItem<FileInfo>)?.Value.Name ?? ""
+                    value => (value as FileInfo)?.Name ?? ""
                 )
                 .DisposeWith(d);
             this.OneWayBind(ViewModel, 
-                    vm => vm.GetItem, 
+                    vm => vm.GetValue, 
                     v => v.FilePathBlock.Text,
-                    item => (item as AtomItem<FileInfo>)?.Value.Path ?? ""
+                    value => (value as FileInfo)?.Path ?? ""
                     )
                 .DisposeWith(d);
         });
