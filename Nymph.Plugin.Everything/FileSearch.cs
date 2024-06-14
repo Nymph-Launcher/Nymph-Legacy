@@ -18,7 +18,7 @@ public static class FileSearch
     {
         return Task.FromResult(Seq(Everything.Search().Name.Contains(query.Value)
             .Take(50)
-            .Select(i => new AtomItem<FileInfo>(new FileInfo(i.FileName, i.Path+ $"\\{i.FileName}")))));
+            .Select(i => new AtomItem<FileInfo>(new FileInfo(i.FileName, i.Path)))));
     }
     
     public static FunctionItem<AtomItem<string>, AtomItem<FileInfo>> CreateEverythingSearchItem()
@@ -32,7 +32,7 @@ public static class FileSearch
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = item.Value.Path ,
+                FileName = item.Value.Path + $"\\{item.Value.Name}",
                 UseShellExecute = true
             });
             return Task.FromResult(Seq([item]));
