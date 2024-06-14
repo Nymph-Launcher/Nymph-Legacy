@@ -13,9 +13,9 @@ public partial class GithubRepoPreviewView : ReactiveUserControl<IItemPreviewVie
         this.WhenActivated(d =>
         {
             this.OneWayBind(ViewModel,
-                    vm => vm,
+                    vm => vm.GetItem,
                     v => v.GithubPreviewBlock.Text,
-                    vm => (vm as ItemPreviewViewModel<AtomItem<string>>)?.Item.Value ?? "")
+                    item => "Preview" + (item as AtomItem<string>)?.Value)
                 .DisposeWith(d);
         });
     }
