@@ -4,6 +4,7 @@ namespace Nymph.Model.Item;
 
 public abstract record FunctionItem(string Description) : Item
 {
+    public string? Description;
     public abstract Func<Item, Option<Task<Seq<Item>>>> GetFunc();
 }
 

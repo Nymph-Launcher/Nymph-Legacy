@@ -4,6 +4,7 @@ using Nymph.Shared.ViewModel;
 using LanguageExt;
 using static LanguageExt.Prelude;
 using Nymph.Model.Item;
+using Nymph.Plugin.Everything;
 using static LanguageExt.Prelude;
 using Binding = Nymph.Model.Binding;
 
@@ -25,7 +26,10 @@ public static class MainViewModelBootstrapper
                             Task.FromResult(Seq<AtomItem<string>>([new AtomItem<string>($"{param1.Value},{param2.Value}")])),
                             $"Combine string with ${param1}")
                     ])),
-                    "Combine two strings"))
+                    "Combine two strings")),
+           
+            new Binding("Everything", FileSearch.CreateEverythingSearchItem()),
+            
         ], new SynthesisStrategy());
     }
 }
