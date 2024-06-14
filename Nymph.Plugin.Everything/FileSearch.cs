@@ -14,12 +14,41 @@ public record FileInfo(string Name, string Path);
 public static class FileSearch
 {
     private static readonly IEverything Everything = new EverythingClient();
-    public static Task<Seq<AtomItem<FileInfo>>> Search(AtomItem<string> query)
+    private static async Task<Seq<AtomItem<FileInfo>>> Search(AtomItem<string> query)
     {
-        return Task.FromResult(Seq(Everything.Search().Name.Contains(query.Value)
+        return await Task.FromResult(Seq(Everything.Search().Name.Contains(query.Value)
             .Take(50)
             .Select(i => new AtomItem<FileInfo>(new FileInfo(i.FileName, i.Path)))));
     }
+
+    private static async Task<Seq<AtomItem<FileInfo>>> GetFiles(string path, string pattern)
+    {
+        var result = Seq<AtomItem<FileInfo>>([]);
+        if (!Directory.Exists(path)) return result;
+        var filePaths = Directory.GetFiles(path, pattern);
+        var dirPaths = Directory.GetDirectories(path, pattern);
+        return await Task.FromResult(result
+            .Concat(filePaths.Select(p => new AtomItem<FileInfo>(new FileInfo(Path.GetFileName(p), path))))
+            .Concat(dirPaths.Select(p => new AtomItem<FileInfo>(new FileInfo(Path.GetFileName(p), path)))));
+
+    }
+    
+    public static FunctionItem<AtomItem<FileInfo>, FunctionItem<AtomItem<string>, AtomItem<FileInfo>>> CreateFileSearchItem()
+    {
+        return new FunctionItem<AtomItem<FileInfo>, FunctionItem<AtomItem<string>, AtomItem<FileInfo>>>(path =>
+            Task.FromResult(Seq<FunctionItem<AtomItem<string>, AtomItem<FileInfo>>>([
+                new FunctionItem<AtomItem<string>, AtomItem<FileInfo>>(
+                    async pattern => await GetFiles(path.Value.Path, pattern.Value))
+                {
+                    Description = $"Search file under {path.Value.Name}"
+                }
+            ])))
+        {
+            Description = "Search file under dir"
+        };
+    }
+    
+    
     
     public static FunctionItem<AtomItem<string>, AtomItem<FileInfo>> CreateEverythingSearchItem()
     {

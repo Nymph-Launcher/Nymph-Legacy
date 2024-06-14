@@ -19,6 +19,7 @@ public static class MainViewModelBootstrapper
             new Binding("Everything", FileSearch.CreateEverythingSearchItem()),
             new Binding("Everything: Open File from FileInfo", FileSearch.CreateOpenFileItem()),
             new Binding("Everything: Open File's Directory from FileInfo", FileSearch.CreateOpenDirItem()),
+            new Binding("Search under Directory", FileSearch.CreateFileSearchItem()),
             
             new Binding("Github: Search Repository", SearchRepository.CreateSearchRepositoryItem()),
             new Binding("GitHub: Open Repository", SearchRepository.CreateOpenRepositoryItem()),
