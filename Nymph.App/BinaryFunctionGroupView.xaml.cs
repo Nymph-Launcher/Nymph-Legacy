@@ -1,5 +1,4 @@
 ﻿using System.Reactive.Disposables;
-using System.Windows.Controls;
 using ReactiveUI;
 
 namespace Nymph.App;
@@ -13,8 +12,13 @@ public partial class BinaryFunctionGroupView
         this.WhenActivated(d =>
         {
             this.OneWayBind(ViewModel,
-                    vm => vm.Items.Count,
-                    v => v.ItemsCount.Text)
+                    vm => vm.Description,
+                    v => v.DescriptionBlock.Text)
+                .DisposeWith(d);
+            
+            this.OneWayBind(ViewModel,
+                vm => vm.Items.Count,
+                v => v.CountBlock.Text)
                 .DisposeWith(d);
 
             this.OneWayBind(ViewModel,

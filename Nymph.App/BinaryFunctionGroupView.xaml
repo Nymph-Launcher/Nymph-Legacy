@@ -19,8 +19,12 @@
             <ColumnDefinition Width="75"/>
         </Grid.ColumnDefinitions>
         
-        <TextBlock x:Name="ItemsCount" />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="DescriptionBlock" />
+            <TextBlock x:Name="CountBlock"/>
+        </StackPanel>
+        
         <ToggleButton Grid.Row="0" Grid.Column="1" x:Name="AutoOperateSwitch">Auto</ToggleButton>
-        <ListBox Grid.Row="1" Grid.ColumnSpan="2" x:Name="ItemsList"/>
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" x:Name="ItemsList"/>
     </Grid>
 </reactiveui:ReactiveUserControl>

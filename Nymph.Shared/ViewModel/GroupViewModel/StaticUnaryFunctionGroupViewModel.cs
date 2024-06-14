@@ -17,7 +17,9 @@ public class StaticUnaryFunctionGroupViewModel<TParam, TResult> : GroupViewModel
     private readonly SourceList<CandidateItemViewModel> _candidates = new();
     public override ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
     public override IObservable<Item> ChosenItemViewModels { get; }
-    public ReactiveCommand<Unit, Unit> ExecuteFunc { get;  }
+    public ReactiveCommand<Unit, Unit> ExecuteFunc { get; }
+
+    public string Description => Group.UnaryFunction.Description;
 
     public StaticUnaryFunctionGroupViewModel(StaticUnaryFunctionGroup<TParam, TResult> group) : base(group)
     {

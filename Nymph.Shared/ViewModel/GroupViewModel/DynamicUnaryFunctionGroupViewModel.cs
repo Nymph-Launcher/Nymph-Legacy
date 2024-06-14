@@ -22,6 +22,8 @@ public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<Dynami
         set => this.RaiseAndSetIfChanged(ref _isAutoExecute, value);
     }
 
+    public string Description => Group.UnaryFunction.Description;
+
     public DynamicUnaryFunctionGroupViewModel(DynamicUnaryFunctionGroup<TResult> group, IObservable<AtomItem<string>> text) : base(group)
     {
         _candidates.Add(new CandidateItemViewModel(new ItemViewModelBuilder().Build(group.UnaryFunction)));

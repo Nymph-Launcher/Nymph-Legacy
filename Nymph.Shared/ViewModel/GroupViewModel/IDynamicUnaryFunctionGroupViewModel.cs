@@ -7,4 +7,5 @@ public interface IDynamicUnaryFunctionGroupViewModel
 {
     ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
     bool IsAutoExecute { get; set; }
+    string Description { get; }
 }
