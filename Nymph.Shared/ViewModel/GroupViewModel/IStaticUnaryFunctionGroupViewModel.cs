@@ -11,4 +11,5 @@ public interface IStaticUnaryFunctionGroupViewModel
 {
     ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
     ReactiveCommand<Unit, Unit> ExecuteFunc { get; }
+    string Description { get; }
 }

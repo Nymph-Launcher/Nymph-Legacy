@@ -18,7 +18,11 @@
             <ColumnDefinition Width="75"/>
         </Grid.ColumnDefinitions>
         
-        <TextBlock Grid.Row="0" Grid.Column="0" x:Name="ItemsCount"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="DescriptionBlock"/>
+            <TextBlock x:Name="CountBlock"/>
+        </StackPanel>
+        
         <ToggleButton Grid.Row="0" Grid.Column="1" x:Name="AutoSwitch">Auto</ToggleButton>
         <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" x:Name="ItemsList"/>
     </Grid>

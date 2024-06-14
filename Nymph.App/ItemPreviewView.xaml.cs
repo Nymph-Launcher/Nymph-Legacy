@@ -26,7 +26,7 @@ public partial class ItemPreviewView
         return item switch
         {
             AtomItem atomItem => atomItem.GetValue().ToString() ?? "Null AtomItem",
-            FunctionItem functionItem => string.Join(" => ", functionItem.GetType().GetGenericArguments().Select(t => t.Name)),
+            FunctionItem functionItem => $"{functionItem.Description}: {string.Join(" => ", functionItem.GetType().GetGenericArguments().Select(t => t.Name))}",
             _ => item.ToString()
         };
     }

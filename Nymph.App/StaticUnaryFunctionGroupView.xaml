@@ -17,7 +17,11 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="75"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="ItemsCount"/>
+        
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="DescriptionBlock"/>
+            <TextBlock Name="CountBlock"/>
+        </StackPanel>
         <Button Grid.Row="0" Grid.Column="1" x:Name="ExecuteButton">Run</Button>
         <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" x:Name="ItemsList"/>
         

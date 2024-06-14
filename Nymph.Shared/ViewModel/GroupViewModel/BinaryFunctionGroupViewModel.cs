@@ -32,6 +32,8 @@ public class BinaryFunctionGroupViewModel<TParam1,TParam2,TResult>: GroupViewMod
 
     public IObservable<AtomItem<string>> finalText;
 
+    public string Description => Group.BinaryFunction.Description;
+
     public BinaryFunctionGroupViewModel(BinaryFunctionGroup<TParam1,TParam2,TResult> group,IObservable<AtomItem<string>> text) : base(group)
     {
         var autoOperation = this

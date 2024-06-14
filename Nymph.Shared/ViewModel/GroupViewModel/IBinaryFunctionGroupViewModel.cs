@@ -7,4 +7,5 @@ public interface IBinaryFunctionGroupViewModel
 {
     bool AutoOperation { get; set; }
     ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
+    string Description { get; }
 }

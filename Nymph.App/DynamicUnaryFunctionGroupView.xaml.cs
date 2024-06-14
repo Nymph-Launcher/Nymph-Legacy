@@ -13,8 +13,13 @@ public partial class DynamicUnaryFunctionGroupView
         this.WhenActivated(d =>
         {
             this.OneWayBind(ViewModel,
+                    vm => vm.Description,
+                    v => v.DescriptionBlock.Text)
+                .DisposeWith(d);
+
+            this.OneWayBind(ViewModel,
                     vm => vm.Items.Count,
-                    v => v.ItemsCount.Text)
+                    v => v.CountBlock.Text)
                 .DisposeWith(d);
 
             this.OneWayBind(ViewModel,
