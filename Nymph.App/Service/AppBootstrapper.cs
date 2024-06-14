@@ -16,8 +16,8 @@ public static class AppBootstrapper
     public static void BootstrapApplication()
     {
         // Register specific view for complete viewmodel
-        Locator.CurrentMutable.Register(() => new EverythingSearchItemView(), typeof(IViewFor<FunctionItemViewModel<AtomItem<string>, AtomItem<FileInfo>>>));
         Locator.CurrentMutable.Register(() => new EverythingFileInfoItemView(), typeof(IViewFor<AtomItemViewModel<FileInfo>>));
+        Locator.CurrentMutable.Register(() => new EverythingFileInfoPreviewView(), typeof(IViewFor<ItemPreviewViewModel<AtomItem<FileInfo>>>));
         // Register overriden ViewLocator
         // Locator.CurrentMutable.UnregisterCurrent(typeof(IViewLocator));
         Locator.CurrentMutable.InitializeReactiveUI();
