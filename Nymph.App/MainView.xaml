@@ -17,7 +17,11 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="800"/>
         </Grid.RowDefinitions>
-        <reactiveui:ViewModelViewHost x:Name="ConstraintItem" />
+        <StackPanel Orientation="Horizontal">
+            <reactiveui:ViewModelViewHost x:Name="ConstraintItem" />
+            <Button x:Name="ClearConstraintButton">Clear</Button>
+        </StackPanel>
+        
         <TextBox Grid.Row="0" Grid.Column="1" x:Name="SearchBox"/>
         <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="GroupsListBox" />
     </Grid>

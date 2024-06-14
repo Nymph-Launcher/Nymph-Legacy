@@ -10,6 +10,7 @@ using Nymph.Model;
 using Nymph.Model.Item;
 using Nymph.Shared.ViewModel.GroupViewModel;
 using static LanguageExt.Prelude;
+using Unit = System.Reactive.Unit;
 
 namespace Nymph.Shared.ViewModel;
 
@@ -33,6 +34,8 @@ public class MainViewModel : ReactiveObject
     public ReadOnlyObservableCollection<GroupVM> GroupViewModels { get; }
 
     private readonly SourceList<Binding> _bindings;
+    
+    public ReactiveCommand<Unit, Unit> ClearConstraintCommand { get; } = ReactiveCommand.Create(() => { });
 
     public MainViewModel(IEnumerable<Binding> bindings, IStrategy strategy)
     {
@@ -55,14 +58,15 @@ public class MainViewModel : ReactiveObject
             .RefCount();
         
         var groupViewModelBuilder = new GroupViewModelBuilder(searchTextObservable);
-        
+
         var constraintItemObservable = _groupViewModels
             .Connect()
             .AutoRefresh()
             .MergeMany(groupVm => groupVm.ChosenItemViewModels)
             .Select(item => new ConstraintItemViewModel(new ItemViewModelBuilder().Build(item)))
             .Select(Some)
-            .StartWith(Option<ConstraintItemViewModel>.None);
+            .StartWith(Option<ConstraintItemViewModel>.None)
+            .Merge(ClearConstraintCommand.Select(_ => Option<ConstraintItemViewModel>.None));
         
         _constraintItemViewModel = constraintItemObservable
             .ToProperty(this, x => x.ConstraintItemViewModel);

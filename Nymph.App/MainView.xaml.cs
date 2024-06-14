@@ -35,6 +35,18 @@ public partial class MainView
                 vm => vm.GroupViewModels,
                 v => v.GroupsListBox.ItemsSource)
                 .DisposeWith(d);
+
+            this.BindCommand(ViewModel,
+                vm => vm.ClearConstraintCommand,
+                v => v.ClearConstraintButton);
+
+            this.OneWayBind(ViewModel,
+                vm => vm.ConstraintItemViewModel,
+                v => v.ClearConstraintButton.Visibility,
+                optionalConstraintItem => optionalConstraintItem.MatchUnsafe(
+                    Some: _ => Visibility.Visible,
+                    None: () => Visibility.Collapsed
+                ));
         });
     }
 }
