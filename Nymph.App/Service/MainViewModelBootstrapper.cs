@@ -29,7 +29,9 @@ public static class MainViewModelBootstrapper
                     "Combine two strings")),
            
             new Binding("Everything", FileSearch.CreateEverythingSearchItem()),
-            
+            new Binding("Everything: Open File from FileInfo", FileSearch.CreateOpenFileItem()),
+            new Binding("Everything: Open File's Directory from FileInfo", FileSearch.CreateOpenDirItem()),
+           
         ], new SynthesisStrategy());
     }
 }

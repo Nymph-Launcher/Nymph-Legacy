@@ -8,6 +8,6 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TextBlock Text="Everything File Search"/>
+        <TextBlock Text=""/>
     </Grid>
 </reactiveui:ReactiveUserControl>
