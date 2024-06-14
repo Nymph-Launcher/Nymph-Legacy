@@ -2,13 +2,13 @@
 
 namespace Nymph.Model.Item;
 
-public abstract record FunctionItem : Item
+public abstract record FunctionItem(string Description) : Item
 {
     public abstract Func<Item, Option<Task<Seq<Item>>>> GetFunc();
 }
 
-public record FunctionItem<TParam, TResult>(Func<TParam, Task<Seq<TResult>>> Func)
-    : FunctionItem
+public record FunctionItem<TParam, TResult>(Func<TParam, Task<Seq<TResult>>> Func, string Description = "Unnamed Function")
+    : FunctionItem(Description)
     where TParam : Item
     where TResult : Item
 {

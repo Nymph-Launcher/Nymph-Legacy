@@ -1,3 +1,6 @@
 ﻿namespace Nymph.Shared.ViewModel.ItemViewModel;
 
-public interface IFunctionItemViewModel;
+public interface IFunctionItemViewModel
+{
+    string Description { get; }
+}

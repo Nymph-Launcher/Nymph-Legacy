@@ -12,6 +12,6 @@
         <Grid.RowDefinitions >
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="FunctionName" Text="Function Unnamed"/>
+        <TextBlock x:Name="Description"/>
     </Grid>
 </reactiveui:ReactiveUserControl>
