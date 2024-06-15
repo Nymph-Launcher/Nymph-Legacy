@@ -7,22 +7,28 @@
         xmlns:local="clr-namespace:Nymph.App"
         xmlns:viewModel="clr-namespace:Nymph.Shared.ViewModel;assembly=Nymph.Shared"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
-    <Grid>
+        Title="Nymph Launcher">
+    <Grid Margin="16,12">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="800"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <reactiveui:ViewModelViewHost x:Name="ConstraintItem" />
+        <StackPanel Orientation="Horizontal" Margin="0,0,6,0" x:Name="ConstraintPanel">
+            <reactiveui:ViewModelViewHost x:Name="ConstraintItem" Margin="0,0,4,0" />
             <Button x:Name="ClearConstraintButton">Clear</Button>
         </StackPanel>
         
         <TextBox Grid.Row="0" Grid.Column="1" x:Name="SearchBox"/>
-        <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="GroupsListBox" />
+        <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="GroupsListBox" Margin="0,8,0,0">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
     </Grid>
 </reactiveui:ReactiveWindow>

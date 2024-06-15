@@ -8,10 +8,10 @@
              xmlns:itemViewModel="clr-namespace:Nymph.Shared.ViewModel.ItemViewModel;assembly=Nymph.Shared"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="75"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <reactiveui:ViewModelViewHost x:Name="CandidateVMVH"/>
         <Button Grid.Column="1" x:Name="ChooseButton"> Choose</Button>

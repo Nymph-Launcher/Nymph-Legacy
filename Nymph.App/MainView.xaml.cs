@@ -42,7 +42,7 @@ public partial class MainView
 
             this.OneWayBind(ViewModel,
                 vm => vm.ConstraintItemViewModel,
-                v => v.ClearConstraintButton.Visibility,
+                v => v.ConstraintPanel.Visibility,
                 optionalConstraintItem => optionalConstraintItem.MatchUnsafe(
                     Some: _ => Visibility.Visible,
                     None: () => Visibility.Collapsed

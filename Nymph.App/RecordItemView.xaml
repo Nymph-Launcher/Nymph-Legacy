@@ -8,7 +8,7 @@
              xmlns:local="clr-namespace:Nymph.App"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid HorizontalAlignment="Stretch">
         <ListBox x:Name="Properties"></ListBox>
     </Grid>
 </reactiveui:ReactiveUserControl>

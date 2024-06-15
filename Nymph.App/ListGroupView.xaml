@@ -8,12 +8,18 @@
              xmlns:local="clr-namespace:Nymph.App"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+    <Grid HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="ItemsCount" />
-        <ListBox Grid.Row="1" x:Name="Items"/>
+        <ListBox Grid.Row="1" x:Name="Items">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
     </Grid>
 </reactiveui:ReactiveUserControl>

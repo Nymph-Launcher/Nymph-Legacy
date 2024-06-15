@@ -8,7 +8,7 @@
       xmlns:local="clr-namespace:Nymph.App"
       mc:Ignorable="d"
       Height="450" Width="800">
-    <Grid>
+    <Grid HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
