@@ -6,6 +6,7 @@ using static LanguageExt.Prelude;
 using Nymph.Model.Item;
 using Nymph.Plugin.Everything;
 using Nymph.Plugin.GitHub;
+using Nymph.Plugin.JQ;
 using static LanguageExt.Prelude;
 using Binding = Nymph.Model.Binding;
 
@@ -23,7 +24,10 @@ public static class MainViewModelBootstrapper
             
             new Binding("Github: Search Repository", SearchRepository.CreateSearchRepositoryItem()),
             new Binding("GitHub: Open Repository", SearchRepository.CreateOpenRepositoryItem()),
-            new Binding("GitHub: Search Code in Repo", SearchCode.CreateSearchCodeItem())
+            new Binding("GitHub: Search Code in Repo", SearchCode.CreateSearchCodeItem()),
+            
+            new Binding("JQ: Parse JSON", JsonQuery.CreateParseJsonItem()),
+            new Binding("JQ: Update JSON with JQ query", JsonQuery.CreateUpdateJsonItem()),
            
         ], new SynthesisStrategy());
     }
