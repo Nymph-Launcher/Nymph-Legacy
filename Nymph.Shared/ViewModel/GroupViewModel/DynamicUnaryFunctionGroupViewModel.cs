@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using DynamicData;
 using LanguageExt;
@@ -9,7 +10,7 @@ using ReactiveUI;
 
 namespace Nymph.Shared.ViewModel.GroupViewModel;
 
-public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<DynamicUnaryFunctionGroup<TResult>>, IDynamicUnaryFunctionGroupViewModel where TResult : Item
+public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<DynamicUnaryFunctionGroup<TResult>>, IDynamicUnaryFunctionGroupViewModel, IActivatableViewModel where TResult : Item
 {
     public readonly SourceList<CandidateItemViewModel> _candidates = new();
     public override ReadOnlyObservableCollection<CandidateItemViewModel> Items { get; }
@@ -26,6 +27,8 @@ public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<Dynami
 
     public DynamicUnaryFunctionGroupViewModel(DynamicUnaryFunctionGroup<TResult> group, IObservable<AtomItem<string>> text) : base(group)
     {
+        Activator = new ViewModelActivator();
+        
         _candidates.Add(new CandidateItemViewModel(new ItemViewModelBuilder().Build(group.UnaryFunction)));
 
         _candidates
@@ -49,20 +52,26 @@ public class DynamicUnaryFunctionGroupViewModel<TResult> : GroupViewModel<Dynami
             .CombineLatest(text, (auto, text) => (auto, text))
             .Where(t => t.auto)
             .Select(t => t.text);
-        
-        acceptedText
-            .Throttle(TimeSpan.FromMicroseconds(300))
-            .DistinctUntilChanged()
-            .SelectMany(async t => await group.GetSpecificResult(t))
-            .Select(seq => seq.Select(res => new CandidateItemViewModel(new ItemViewModelBuilder().Build(res))))
-            .ObserveOn(RxApp.MainThreadScheduler)
-            .Subscribe(seq =>
-            {
-                _candidates.Edit(inner =>
+
+        this.WhenActivated(d =>
+        {
+            acceptedText
+                .Throttle(TimeSpan.FromMicroseconds(300))
+                .DistinctUntilChanged()
+                .SelectMany(async t => await group.GetSpecificResult(t))
+                .Select(seq => seq.Select(res => new CandidateItemViewModel(new ItemViewModelBuilder().Build(res))))
+                .ObserveOn(RxApp.MainThreadScheduler)
+                .Subscribe(seq =>
                 {
-                    inner.Clear();
-                    inner.AddRange(seq);
-                });
-            });
+                    _candidates.Edit(inner =>
+                    {
+                        inner.Clear();
+                        inner.AddRange(seq);
+                    });
+                })
+                .DisposeWith(d);
+        });
     }
+
+    public ViewModelActivator Activator { get; }
 }
