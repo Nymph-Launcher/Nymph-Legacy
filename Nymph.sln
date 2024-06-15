@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Plugin.Everything", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Plugin.GitHub", "Nymph.Plugin.GitHub\Nymph.Plugin.GitHub.csproj", "{63070A39-F06B-4CED-A57A-DB16BA612157}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nymph.Plugin.JQ", "Nymph.Plugin.JQ\Nymph.Plugin.JQ.csproj", "{DBFB2FB1-FB46-41BC-BFCF-32B0747E5F68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{63070A39-F06B-4CED-A57A-DB16BA612157}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63070A39-F06B-4CED-A57A-DB16BA612157}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63070A39-F06B-4CED-A57A-DB16BA612157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBFB2FB1-FB46-41BC-BFCF-32B0747E5F68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFB2FB1-FB46-41BC-BFCF-32B0747E5F68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFB2FB1-FB46-41BC-BFCF-32B0747E5F68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFB2FB1-FB46-41BC-BFCF-32B0747E5F68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

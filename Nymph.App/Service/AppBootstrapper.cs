@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel;
 using Autofac;
+using Newtonsoft.Json.Linq;
 using Nymph.Model.Item;
 using Nymph.Plugin.Everything;
 using Nymph.Plugin.GitHub;
+using Nymph.Plugin.JQ;
 using Nymph.Shared.ViewModel.GroupViewModel;
 using Nymph.Shared.ViewModel.ItemViewModel;
 using Octokit;
@@ -27,6 +29,8 @@ public static class AppBootstrapper
             typeof(IViewFor<AtomItemViewModel<Octokit.SearchCode>>));
         Locator.CurrentMutable.Register(() => new GitHubCodePreviewView(),
             typeof(IViewFor<ItemPreviewViewModel<AtomItem<Octokit.SearchCode>>>));
+        
+        Locator.CurrentMutable.Register(() => new JTokenPreviewItem(), typeof(IViewFor<ItemPreviewViewModel<AtomItem<JToken>>>));
         // Register overriden ViewLocator
         // Locator.CurrentMutable.UnregisterCurrent(typeof(IViewLocator));
         Locator.CurrentMutable.InitializeReactiveUI();
