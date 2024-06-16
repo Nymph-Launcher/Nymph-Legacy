@@ -37,5 +37,6 @@ public static class AppBootstrapper
         // Locator.CurrentMutable.UnregisterCurrent(typeof(IViewLocator));
         Locator.CurrentMutable.InitializeReactiveUI();
         Locator.CurrentMutable.RegisterLazySingleton(() => new NymphViewLocator(), typeof(IViewLocator));
+        
     }
 }

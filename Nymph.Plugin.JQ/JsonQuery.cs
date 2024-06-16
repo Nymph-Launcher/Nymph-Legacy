@@ -63,7 +63,11 @@ public static class JsonQuery
             Description = "Query JSON with JQ"
         };
     }
-    
+
+    public static FunctionItem<AtomItem<JToken>, AtomItem<string>> CreateJTokenToStringItem()
+    {
+        return new FunctionItem<AtomItem<JToken>, AtomItem<string>>(item => Task.FromResult(Seq([new AtomItem<string>(item.Value.ToString())])));
+    }
     
     
 }
