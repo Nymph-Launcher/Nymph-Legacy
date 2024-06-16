@@ -19,6 +19,8 @@ public static class AppBootstrapper
 {
     public static void BootstrapApplication()
     {
+        // Register configuration service
+        Locator.CurrentMutable.Register(() => new ConfigurationService(), typeof(IConfigurationService));
         // Register specific view for complete viewmodel
         Locator.CurrentMutable.Register(() => new EverythingFileInfoItemView(), typeof(IViewFor<AtomItemViewModel<FileInfo>>));
         Locator.CurrentMutable.Register(() => new EverythingFileInfoPreviewView(), typeof(IViewFor<ItemPreviewViewModel<AtomItem<FileInfo>>>));
@@ -35,7 +37,5 @@ public static class AppBootstrapper
         // Locator.CurrentMutable.UnregisterCurrent(typeof(IViewLocator));
         Locator.CurrentMutable.InitializeReactiveUI();
         Locator.CurrentMutable.RegisterLazySingleton(() => new NymphViewLocator(), typeof(IViewLocator));
-        
-        // Locator.CurrentMutable.InitializeReactiveUI();
     }
 }
