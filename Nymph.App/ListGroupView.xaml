@@ -18,6 +18,7 @@
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Margin" Value="4,2"></Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>

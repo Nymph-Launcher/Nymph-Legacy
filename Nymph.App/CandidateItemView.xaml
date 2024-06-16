@@ -13,7 +13,9 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <reactiveui:ViewModelViewHost x:Name="CandidateVMVH"/>
-        <Button Grid.Column="1" x:Name="ChooseButton" FontSize="18"> Choose</Button>
+        <reactiveui:ViewModelViewHost x:Name="ItemModelViewHost"/>
+        <StackPanel Grid.Column="1">
+            <Button x:Name="ChooseButton" FontSize="18">Choose</Button>
+        </StackPanel>
     </Grid>
 </reactiveui:ReactiveUserControl>

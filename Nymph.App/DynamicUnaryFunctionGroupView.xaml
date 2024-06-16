@@ -18,17 +18,16 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         
-        <StackPanel Orientation="Horizontal">
-            <TextBlock x:Name="DescriptionBlock"/>
-            <TextBlock x:Name="CountBlock"/>
-        </StackPanel>
+        <TextBlock FontSize="16">
+            <Run x:Name="DescriptionBlock"/> (<Run x:Name="CountBlock"/> items)
+        </TextBlock>
         
         <ToggleButton Grid.Row="0" Grid.Column="1" x:Name="AutoSwitch" FontSize="18">Auto</ToggleButton>
-        <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" x:Name="ItemsList">
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" x:Name="ItemsList" Margin="0,6,0,0">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    <Setter Property="Margin" Value="6"></Setter>
+                    <Setter Property="Margin" Value="4,2"></Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>

@@ -5,6 +5,11 @@
              StartupUri="MainView.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <Style TargetType="ListBox">
+                <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+                <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+                <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

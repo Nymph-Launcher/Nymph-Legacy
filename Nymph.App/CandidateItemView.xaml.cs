@@ -14,7 +14,7 @@ public partial class CandidateItemView
         {
             this.BindCommand(ViewModel, vm => vm.Choose, v => v.ChooseButton)
                 .DisposeWith(d);
-            this.OneWayBind(ViewModel, vm => vm.ItemViewModel, v => v.CandidateVMVH.ViewModel)
+            this.OneWayBind(ViewModel, vm => vm.ItemViewModel, v => v.ItemModelViewHost.ViewModel)
                 .DisposeWith(d);
         });
     }
