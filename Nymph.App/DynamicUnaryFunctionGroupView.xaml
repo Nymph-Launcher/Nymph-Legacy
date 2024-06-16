@@ -23,11 +23,12 @@
             <TextBlock x:Name="CountBlock"/>
         </StackPanel>
         
-        <ToggleButton Grid.Row="0" Grid.Column="1" x:Name="AutoSwitch">Auto</ToggleButton>
+        <ToggleButton Grid.Row="0" Grid.Column="1" x:Name="AutoSwitch" FontSize="18">Auto</ToggleButton>
         <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" x:Name="ItemsList">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Margin" Value="6"></Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>

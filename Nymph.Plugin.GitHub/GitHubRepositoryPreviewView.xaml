@@ -9,7 +9,7 @@
                                 mc:Ignorable="d"
                                 d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel Orientation="Vertical">
-        <TextBlock x:Name="FullName"/>
+        <TextBlock x:Name="FullName" FontSize="18"/>
         <TextBlock x:Name="DescriptionBlock"/>
     </StackPanel>
 </reactiveUi:ReactiveUserControl>

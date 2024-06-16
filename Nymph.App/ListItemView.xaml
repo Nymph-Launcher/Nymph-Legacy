@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="CountBlock"/>
+        <TextBlock x:Name="CountBlock" FontSize="18"/>
         <ListBox Grid.Row="1" x:Name="Items"/>
     </Grid>
 </reactiveui:ReactiveUserControl>

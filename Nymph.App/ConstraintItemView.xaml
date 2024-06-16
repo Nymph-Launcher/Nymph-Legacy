@@ -9,6 +9,6 @@
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid HorizontalAlignment="Stretch">
-        <TextBlock x:Name="ItemIcon" Text="Null"/>
+        <TextBlock x:Name="ItemIcon" Text="Null" FontSize="24"/>
     </Grid>
 </reactiveui:ReactiveUserControl>

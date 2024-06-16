@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="ItemsCount" />
+        <TextBlock x:Name="ItemsCount" FontSize="18"/>
         <ListBox Grid.Row="1" x:Name="Items">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">

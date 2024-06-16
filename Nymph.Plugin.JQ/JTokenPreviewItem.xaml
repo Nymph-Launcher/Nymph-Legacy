@@ -9,6 +9,6 @@
                                 mc:Ignorable="d"
                                 d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <TreeView Name="JsonTreeView"/>
+        <TreeView Name="JsonTreeView" FontSize="18"/>
     </Grid>
 </reactiveUi:ReactiveUserControl>

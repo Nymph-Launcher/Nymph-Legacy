@@ -22,11 +22,12 @@
             <TextBlock x:Name="DescriptionBlock"/>
             <TextBlock x:Name="CountBlock"/>
         </StackPanel>
-        <Button Grid.Row="0" Grid.Column="1" x:Name="ExecuteButton">Run</Button>
+        <Button Grid.Row="0" Grid.Column="1" x:Name="ExecuteButton" FontSize="18">Run</Button>
         <ListBox Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" x:Name="ItemsList">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Margin" Value="6"></Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>

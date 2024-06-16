@@ -39,7 +39,7 @@ public partial class EverythingFileInfoPreviewView : ReactiveUserControl<IItemPr
         var result = "";
         if (item is not AtomItem<FileInfo> fileItem) return result;
         result = "Unknown";
-        var path = fileItem.Value.Path;
+        var path = fileItem.Value.Path + $"\\{fileItem.Value.Name}";
         if (File.Exists(path)) result = "File";
         if (Directory.Exists(path)) result = "Dir";
 

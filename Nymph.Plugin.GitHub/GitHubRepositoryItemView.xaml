@@ -9,6 +9,6 @@
                                 mc:Ignorable="d"
                                 d:DesignHeight="100" d:DesignWidth="300">
     <StackPanel Orientation="Horizontal">
-        <TextBlock x:Name="FullName"/>
+        <TextBlock x:Name="FullName" FontSize="18"/>
     </StackPanel>
 </reactiveUi:ReactiveUserControl>

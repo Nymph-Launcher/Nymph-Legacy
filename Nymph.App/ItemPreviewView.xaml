@@ -12,6 +12,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="ItemValue"/>
+        <TextBlock x:Name="ItemValue" FontSize="18"/>
     </Grid>
 </reactiveui:ReactiveUserControl>

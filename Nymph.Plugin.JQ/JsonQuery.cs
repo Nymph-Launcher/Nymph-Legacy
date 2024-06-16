@@ -49,7 +49,7 @@ public static class JsonQuery
                     var output = query.Value.EvalToToken(json);
                     return Task.FromResult(Seq([new AtomItem<JToken>(output) ?? item]));
                 }
-                catch (ParseException _)
+                catch (Exception _)
                 {
                     return Task.FromResult(Seq([item]));
                 }

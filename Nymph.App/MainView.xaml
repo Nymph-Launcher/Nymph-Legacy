@@ -19,14 +19,15 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Margin="0,0,6,0" x:Name="ConstraintPanel">
             <reactiveui:ViewModelViewHost x:Name="ConstraintItem" Margin="0,0,4,0" />
-            <Button x:Name="ClearConstraintButton">Clear</Button>
+            <Button x:Name="ClearConstraintButton" FontSize="22">Clear</Button>
         </StackPanel>
         
-        <TextBox Grid.Row="0" Grid.Column="1" x:Name="SearchBox"/>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="SearchBox" FontSize="22"/>
         <ListBox Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="GroupsListBox" Margin="0,8,0,0">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    <Setter Property="Margin" Value="6"></Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
