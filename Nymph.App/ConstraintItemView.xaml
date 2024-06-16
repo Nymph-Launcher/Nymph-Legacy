@@ -6,9 +6,10 @@
              xmlns:local="clr-namespace:Nymph.App"
              xmlns:reactiveui="http://reactiveui.net"
              xmlns:itemViewModel="clr-namespace:Nymph.Shared.ViewModel.ItemViewModel;assembly=Nymph.Shared"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid HorizontalAlignment="Stretch">
-        <TextBlock x:Name="ItemIcon" Text="Null" FontSize="24"/>
+        <iconPacks:PackIconMaterial x:Name="Icon" Width="24" Height="24"/>
     </Grid>
 </reactiveui:ReactiveUserControl>

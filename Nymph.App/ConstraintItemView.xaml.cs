@@ -1,5 +1,6 @@
 ﻿using System.Reactive.Disposables;
 using System.Windows.Controls;
+using MahApps.Metro.IconPacks;
 using Nymph.Model.Item;
 using Nymph.Shared.ViewModel.ItemViewModel;
 using ReactiveUI;
@@ -15,20 +16,20 @@ public partial class ConstraintItemView
         {
             this.OneWayBind(ViewModel,
                 vm => vm.ItemViewModel,
-                v => v.ItemIcon.Text,
+                v => v.Icon.Kind,
                 GetItemType).DisposeWith(d);
         });
     }
-    private static string GetItemType(ItemViewModel itemViewModel)
+    private static PackIconMaterialKind GetItemType(ItemViewModel itemViewModel)
     {
         return itemViewModel switch
         {
-            IAtomItemViewModel => "A",
-            IListItemViewModel => "L",
-            IPathItemViewModel => "P",
-            RecordItemViewModel => "R",
-            IFunctionItemViewModel => "F",
-            _ => "N"
+            IAtomItemViewModel => PackIconMaterialKind.Atom,
+            IListItemViewModel => PackIconMaterialKind.ListBox,
+            IPathItemViewModel => PackIconMaterialKind.ArrowRight,
+            RecordItemViewModel => PackIconMaterialKind.Record,
+            IFunctionItemViewModel => PackIconMaterialKind.Function,
+            _ => PackIconMaterialKind.Null
         };
     }
 }
