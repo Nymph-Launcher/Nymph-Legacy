@@ -36,6 +36,14 @@ public static class JsonQuery
             Description = "Parse JSON"
         };
     }
+    
+    public static FunctionItem<AtomItem<JToken>, AtomItem<string>> CreateStringifyJsonItem()
+    {
+        return new FunctionItem<AtomItem<JToken>, AtomItem<string>>(item => Task.FromResult(Seq([new AtomItem<string>(item.Value.ToString())])))
+        {
+            Description = "Stringify JSON"
+        };
+    }
 
     public static UpdateJsonFunctionItem CreateUpdateJsonItem()
     {

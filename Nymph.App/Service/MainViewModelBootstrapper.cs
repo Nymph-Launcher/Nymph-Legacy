@@ -28,7 +28,8 @@ public static class MainViewModelBootstrapper
             
             new Binding("JQ: Parse JSON", JsonQuery.CreateParseJsonItem()),
             new Binding("JQ: Update JSON with JQ query", JsonQuery.CreateUpdateJsonItem()),
-            new Binding("JQ: JToken to string", JsonQuery.CreateJTokenToStringItem()),
+            new Binding("JQ: Stringify JSON", JsonQuery.CreateStringifyJsonItem()),
+           
         ], new SynthesisStrategy());
     }
 }
