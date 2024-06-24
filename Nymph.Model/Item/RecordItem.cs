@@ -2,4 +2,4 @@
 
 namespace Nymph.Model.Item;
 
-public record RecordItem(Seq<Tuple<string, Item>> Properties) : Item;
+internal record RecordItem(Map<string, Item> Fields) : Item;
